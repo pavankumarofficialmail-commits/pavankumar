@@ -166,74 +166,80 @@ export default function HeroSection() {
           <div className="overflow-hidden border-t-[2px] border-indigo-900 px-4 lg:px-8 py-4 lg:py-8 relative">
             <code ref={codeRef} className="font-mono text-xs md:text-sm lg:text-base block relative">
 
-              <div className="code-line aura-line">
-  <span className="mr-2 text-pink-500 aura-const">const</span>
-  <span className="mr-2 text-white aura-name">valueArchitect</span>
-  <span className="mr-2 text-pink-500 aura-const">=</span>
-  <span className="text-gray-400 aura-brace">{'{'}</span>
+<div className="code-line aura-line">
+  <span className="text-pink-500 aura-const">VALUE</span>
+  <span className="ml-2 text-white aura-name">ARCHITECT PROFILE</span>
 </div>
 
+<div className="code-line ml-4 lg:ml-8">
+  <span className="text-amber-300 aura-name">{personalData.name}</span>
+</div>
 
-              <div className="code-line ml-4 lg:ml-8">
-                <span className="text-white">name:</span>{" "}
-                <span className="text-amber-300 aura-name">'Pavan Kumar'</span>
-<span className="text-gray-400">,</span>
+<div className="code-line ml-4 lg:ml-8 text-white">
+  ⚙ Process Optimization Intelligence
+</div>
 
-              </div>
+<div className="code-line ml-4 lg:ml-8 text-white">
+  💰 Financial Accuracy
+</div>
 
-              <div className="code-line ml-4 lg:ml-8">
-                <span className="text-white">builds:</span>{" "}
-                <span className="text-amber-300">
-                  ['Process Optimization Intelligence', 'Financial Accuracy', 'Operational Excellence'],
-                </span>
-              </div>
+<div className="code-line ml-4 lg:ml-8 text-white">
+  📊 Operational Excellence
+</div>
 
-              <div className="code-line ml-4 lg:ml-8">
-                <span className="text-white">tools:</span>{" "}
-                <span className="text-amber-300">
-                  ['SAP MM', 'SAP FI', 'COUPA'],
-                </span>
-              </div>
+<div className="code-line ml-4 lg:ml-8 text-gray-400">
+  ───────────────────────────
+</div>
 
-              <div className="code-line ml-4 lg:ml-8">
-                <span className="text-white">powers:</span>{" "}
-                <span className="text-gray-400">{'{'}</span>
-              </div>
+<div className="code-line ml-4 lg:ml-8 text-white">
+  SYSTEMS
+</div>
 
-              <div className="code-line ml-8 lg:ml-16">
-                <span className="text-white">optimization:</span>{" "}
-                <span className="text-orange-400">true,</span>
-              </div>
+<div className="code-line ml-4 lg:ml-8 text-amber-300">
+  SAP MM • SAP FI • COUPA
+</div>
 
-              <div className="code-line ml-8 lg:ml-16">
-                <span className="text-white">compliance:</span>{" "}
-                <span className="text-orange-400">true,</span>
-              </div>
+<div className="code-line ml-4 lg:ml-8 text-gray-400">
+  ───────────────────────────
+</div>
 
-              <div className="code-line ml-8 lg:ml-16">
-                <span className="text-white">accurecy:</span>{" "}
-                <span className="text-orange-400">true</span>
-              </div>
+<div className="code-line ml-4 lg:ml-8 text-white">
+  CORE STRENGTHS
+</div>
 
-              <div className="code-line ml-4 lg:ml-8 text-gray-400">{'},'}</div>
+<div className="code-line ml-8 lg:ml-16 text-orange-400">
+  ✓ Optimization
+</div>
 
-              <div className="code-line ml-4 lg:ml-8">
-                <span className="text-white">result:</span>{" "}
-                <span className="text-gray-400">() =&gt;</span>{" "}
-                <span className="text-amber-300">
-  'Business Value Delivered - I Don’t Manage Operations. I Master Them.'
+<div className="code-line ml-8 lg:ml-16 text-orange-400">
+  ✓ Compliance
+</div>
+
+<div className="code-line ml-8 lg:ml-16 text-orange-400">
+  ✓ Accuracy
+</div>
+
+<div className="code-line ml-4 lg:ml-8 text-gray-400">
+  ───────────────────────────
+</div>
+
+<div className="code-line ml-4 lg:ml-8 text-white">
+  RESULT
+</div>
+
+<div className="code-line ml-4 lg:ml-8 text-amber-300 aura-result">
+  Business Value Delivered
+</div>
+
+<div className="code-line ml-4 lg:ml-8 text-amber-300">
+  I Don’t Manage Operations. I Master Them.
+</div>
+
+<span className="absolute -right-2 bottom-6 md:bottom-8 cursor-block">
+  <span className="cursor-block-dot" />
 </span>
 
-
-              </div>
-
-              <div className="code-line text-gray-400">{'};'}</div>
-
-              <span className="absolute -right-2 bottom-6 md:bottom-8 cursor-block">
-                <span className="cursor-block-dot" />
-              </span>
-
-            </code>
+</code>
           </div>
         </div>
       </div>
