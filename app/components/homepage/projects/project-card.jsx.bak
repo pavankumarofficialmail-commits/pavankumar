@@ -6,8 +6,6 @@ import { FiTag, FiTool, FiUser, FiFileText } from "react-icons/fi";
 
 function ProjectCard({ project }) {
   const description = (project.description || "").trim();
-  const tools = project.tools || [];
-  const mobileTools = tools.length > 1 ? [...tools, ...tools] : tools;
 
   return (
     <div className="w-full max-w-3xl mx-auto mb-8 md:mb-10 pb-8 md:pb-0">
@@ -33,7 +31,7 @@ function ProjectCard({ project }) {
         </div>
 
         {/* Content */}
-        <div className="px-4 lg:px-10 py-5 sm:py-6 lg:py-8">
+        <div className="px-4 lg:px-10 py-6 lg:py-8">
 
           {/* Name */}
           <div className="flex items-start gap-3 mb-4">
@@ -50,40 +48,21 @@ function ProjectCard({ project }) {
           </div>
 
           {/* Tools */}
-          <div className="flex items-start gap-3 mb-5 sm:mb-6">
+          <div className="flex items-start gap-3 mb-6">
             <div className="text-yellow-400 mt-1">
               <FiTool size={18} />
             </div>
 
             <div className="w-full">
-              <div className="text-gray-200 text-sm mb-2 sm:mb-3 font-medium">
+              <div className="text-gray-200 text-sm mb-3 font-medium">
                 tools:
               </div>
 
-              {/* Mobile: continuous moving tools row */}
-              <div className="sm:hidden relative overflow-hidden pb-1">
-                <div className="pointer-events-none absolute inset-y-0 left-0 w-6 bg-gradient-to-r from-[#0d1224] to-transparent z-10" />
-                <div className="pointer-events-none absolute inset-y-0 right-0 w-6 bg-gradient-to-l from-[#0a0d37] to-transparent z-10" />
-                <div
-                  className={`flex w-max items-center gap-2.5 px-1 ${tools.length > 1 ? "mobile-tools-marquee" : ""}`}
-                >
-                  {mobileTools.map((tool, i) => (
-                    <span
-                      key={`${tool}-${i}`}
-                      className="shrink-0 whitespace-nowrap px-2.5 py-1 rounded-md border border-yellow-600 text-amber-300 text-[11px] leading-none"
-                    >
-                      {tool}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Desktop: unchanged tool layout */}
-              <div className="hidden sm:flex sm:flex-wrap gap-3">
-                {tools.map((tool, i) => (
+              <div className="flex flex-wrap gap-3">
+                {project.tools?.map((tool, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1 rounded-md border border-yellow-600 text-amber-300 text-sm"
+                    className="px-3 py-1 rounded-md border border-yellow-600 text-amber-300 text-[12px] sm:text-sm"
                   >
                     {tool}
                   </span>
@@ -148,17 +127,6 @@ function ProjectCard({ project }) {
           100% { background-position: 200% center; }
         }
 
-        @keyframes toolsMarqueeLtr {
-          0% { transform: translate3d(-50%, 0, 0); }
-          100% { transform: translate3d(0, 0, 0); }
-        }
-
-        .mobile-tools-marquee {
-          animation: toolsMarqueeLtr 13s linear infinite;
-          animation-play-state: running;
-          will-change: transform;
-        }
-
         /* small safeguard: if user prefers reduced motion, stop the animation */
         @media (prefers-reduced-motion: reduce) {
           p[style] {
@@ -166,7 +134,6 @@ function ProjectCard({ project }) {
             -webkit-text-fill-color: #06b6d4 !important;
             background: none !important;
           }
-
         }
       `}</style>
     </div>

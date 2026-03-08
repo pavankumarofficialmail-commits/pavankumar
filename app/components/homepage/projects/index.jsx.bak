@@ -8,13 +8,10 @@ import ProjectCard from "./project-card";
 // - MOBILE_BREAKPOINT: switch point for mobile behavior.
 // - MOBILE_TOP_OFFSET: sticky top offset on mobile in px.
 // - MINHEIGHT_PERCENT: mobile sticky card height percent via --vh fallback.
-// - MOBILE_GAP_PX: visual gap between cards while stacked.
-// - MOBILE_EXIT_BUFFER_PERCENT: extra bottom scroll space so last card exits smoothly.
+//   Increase MINHEIGHT_PERCENT (82 -> 85/90) to delay next card takeover on mobile.
 const MOBILE_BREAKPOINT = 768;
-const MOBILE_TOP_OFFSET = 70;
-const MINHEIGHT_PERCENT = 92;
-const MOBILE_GAP_PX = 20;
-const MOBILE_EXIT_BUFFER_PERCENT = 16;
+const MOBILE_TOP_OFFSET = 88;
+const MINHEIGHT_PERCENT = 82;
 
 export default function Projects() {
   const [isMobile, setIsMobile] = useState(false);
@@ -71,35 +68,25 @@ export default function Projects() {
       </div>
 
       <div className={isMobile ? "pt-20" : "pt-24"}>
-        <div
-          className={`flex flex-col relative ${isMobile ? "" : "gap-20 md:gap-6"}`}
-          style={
-            isMobile
-              ? {
-                  gap: `${MOBILE_GAP_PX}px`,
-                  paddingBottom: `calc(var(--vh, 1vh) * ${MOBILE_EXIT_BUFFER_PERCENT})`,
-                }
-              : undefined
-          }
-        >
+        <div className={`flex flex-col ${isMobile ? "gap-8" : "gap-20 md:gap-6"}`}>
           {projectsData.slice(0, 4).map((project, index) => (
-            <div
-              id={`sticky-card-${index + 1}`}
-              key={index}
-              className={`w-full mx-auto max-w-2xl sticky ${isMobile ? "" : "sticky-card"}`}
-              style={{
-                top: isMobile
-                  ? `calc(${MOBILE_TOP_OFFSET}px + env(safe-area-inset-top))`
-                  : undefined,
-                minHeight: isMobile
-                  ? `calc(var(--vh, 1vh) * ${MINHEIGHT_PERCENT})`
-                  : undefined,
-              }}
-            >
+            <div key={index} className="w-full mx-auto max-w-2xl flex-none">
               <div
-                className={`box-border flex items-center justify-center rounded transition-all duration-[0.5s] ${isMobile ? "shadow-[0_12px_30px_rgba(0,0,0,0.35)]" : "shadow-[0_0_30px_0_rgba(0,0,0,0.3)]"}`}
+                className="w-full sticky"
+                style={{
+                  top: isMobile
+                    ? `${MOBILE_TOP_OFFSET}px`
+                    : `${10 + index * 60}px`,
+                  minHeight: isMobile
+                    ? `calc(var(--vh, 1vh) * ${MINHEIGHT_PERCENT})`
+                    : "85vh",
+                }}
               >
-                <ProjectCard project={project} />
+                <div
+                  className={`box-border flex items-center justify-center rounded transition-all duration-[0.5s] ${isMobile ? "shadow-[0_12px_30px_rgba(0,0,0,0.35)]" : "shadow-[0_0_30px_0_rgba(0,0,0,0.3)]"}`}
+                >
+                  <ProjectCard project={project} />
+                </div>
               </div>
             </div>
           ))}
